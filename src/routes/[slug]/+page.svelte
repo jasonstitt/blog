@@ -1,13 +1,16 @@
 <script>
   export let data
   import { toDisplayDate, toIsoDate } from '$lib/dates';
+  import { ogimg } from '$lib/ogimg';
   const author = 'Jason Stitt'
   const isoDate = toIsoDate(data.date)
   const displayDate = toDisplayDate(data.date)
+  const socialImage = ogimg(data.title)
 </script>
 
 <svelte:head>
-  <title>{data.title} - {author}</title> 
+  <title>{data.title} - {author}</title>
+  <meta property="og:image" content={socialImage} />
 </svelte:head>
 
 <article class="content">

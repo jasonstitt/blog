@@ -1,9 +1,12 @@
 <script>
 	export let data
+  import { ogimg } from '$lib/ogimg'
+  const socialImage = ogimg('Adventures in software engineering')
 </script>
 
 <svelte:head>
-  <title>Jason Stitt's Blog</title> 
+  <title>Jason Stitt's Blog</title>
+  <meta property="og:image" content={socialImage} />
 </svelte:head>
 
 <ul class="post-list">
