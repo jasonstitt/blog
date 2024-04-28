@@ -31,12 +31,16 @@
     line-height: 150%;
   }
   :global {
+    h1,h2,h3,h4,h5 {
+      text-wrap: balance;
+    }
     a {
       color: hsl(209, 57%, 63%);
       text-decoration: none;
     }
     a:hover {
       background-color: hsla(250, 20%, 50%, 40%);
+      border-radius: 0.2rem;
     }
     code {
       font-family: var(--font-mono);

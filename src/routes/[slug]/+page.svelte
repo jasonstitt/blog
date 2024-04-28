@@ -34,11 +34,18 @@
         margin-block: 0.6rem;
         margin-block-start: 1.8rem;
       }
-      h2 code {
-        font-size: 90%;
+      p code, h2 code {
+        margin-inline: 0.1rem;
+        padding-inline: 0.2rem;
+        padding-block: 0.1rem;
+        border-radius: 0.2rem;
+        background: hsla(50, 10%, 90%, 15%);
       }
       p code {
         font-size: 110%;
+      }
+      h2 code {
+        font-size: 95%;
       }
       time.pubdate {
         margin-block: 0.4rem;
