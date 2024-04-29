@@ -105,3 +105,11 @@ This is true, with the caveat that when you first check out a repo, or delete `.
 Looking through the content in `.svelte-kit/tsconfig.json`, it's unclear why it has to be dynamically generated, or which parts of it could vary over time -- i.e. if there would be any reason not to simply inline the config within `/tsconfig.json`.
 
 Granted, the relationship status between Svelte and Typescript is "it's complicated." But Typescript is still a top-level option in SvelteKit, so I'd love to see the docs describe this more explicitly.
+
+## Timezone issues with post dates
+
+Non-datetime dates in client-side JavaScript have always been a source of problems. The date gets converted to a datetime at time 00:00, which then can be timezone-adjusted if not handled strictly in UTC, potentially shifting the date by a day when displayed.
+
+This is a common issue, but I thought I would avoid it by statically prerendering all the content. However, when I built my site, I found that the dates all flashed and rolled back a fraction of a second after page load, meaning that they were being initally set by the static build and then rehydrating on the client side. The _reason_ static exports didn't avoid this issue is that I had to use a `+page.ts` rather than a `+page.server.ts` for my posts, which in turn is because the imported Markdown post objects weren't serializable.
+
+The fix is simple enough -- set `timeZone: 'UTC'` in `toLocaleDateString` -- but it's an example of how even static sites aren't that simple under the hood now.
