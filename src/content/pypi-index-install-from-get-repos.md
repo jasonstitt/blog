@@ -14,11 +14,15 @@ An alternative approach is to create a PyPI style index, but not a full server. 
 
 In other words, instead of this:
 
-    pip install git+https://github.com/user/repo@1.0.0#egg=package-1.0.0
+```
+pip install git+https://github.com/user/repo@1.0.0#egg=package-1.0.0
+```
 
 We want to be able to do this:
 
-    pip install package==1.0.0
+```
+pip install package==1.0.0
+```
 
 But the package will still be downloaded and installed from the tag in the repository.
 
@@ -28,15 +32,21 @@ A barebones index is extremely simple. It needs an index view that lists package
 
 The index view should contain a link to each package's page.
 
-    <a href="packagename/">packagename</a>
+```html
+<a href="packagename/">packagename</a>
+```
 
 The package view should contain links to the actual download for each available version, with a version string in the package name. These links take this form:
 
-    <a href="/link/to/package-1.0.0.tar.gz">package-1.0.0</a>
+```html
+<a href="/link/to/package-1.0.0.tar.gz">package-1.0.0</a>
+```
 
 The link does not have to be to a file. It can also be a Git repository URI, which is going to look something like this:
 
-    <a href="git+https://github.com/user/repo@1.0.0#egg=package-1.0.0">package-1.0.0</a>
+```html
+<a href="git+https://github.com/user/repo@1.0.0#egg=package-1.0.0">package-1.0.0</a>
+```
 
 Note that I'm making a distinction here between repo and package name. There is no requirement for the name of the Git repository to be the same as the name of the Python package. For example, the repo could be called `pylibrary` and the package just `library`.
 
