@@ -7,6 +7,7 @@
 <svelte:head>
   <title>Jason Stitt's Blog</title>
   <meta property="og:image" content={socialImage} />
+  <meta property="twitter:card" content={socialImage} />
 </svelte:head>
 
 <ul class="post-list">

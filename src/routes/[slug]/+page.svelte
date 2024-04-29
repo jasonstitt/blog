@@ -11,6 +11,7 @@
 <svelte:head>
   <title>{data.title} - {author}</title>
   <meta property="og:image" content={socialImage} />
+  <meta property="twitter:card" content={socialImage} />
 </svelte:head>
 
 <article class="content">
