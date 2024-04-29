@@ -1,18 +1,16 @@
-# create-svelte
+# Jason Stitt's Blog
+
+A Svelte app for my personal blog. I wrote about the process of creating this in [_Did switching to Svelte make my blog better?_](https://jasonstitt.com/svelte-blog) and decided to publish the code.
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
 
-## Creating a project
+## License
 
-If you're seeing this, you've probably already done this step. Congrats!
+Copyright 2009-2024 Jason Stitt.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+The blog's content (e.g. posts, images, etc.) is all rights reserved and is not open source.
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+The code is under the MIT license, included here in LICENSE.txt.
 
 ## Developing
 
@@ -32,7 +30,3 @@ To create a production version of your app:
 ```bash
 npm run build
 ```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
