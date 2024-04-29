@@ -18,6 +18,8 @@ In building the project, I referenced [_Let's learn SvelteKit by building a stat
 _](https://joshcollinsworth.com/blog/build-static-sveltekit-markdown-blog) by Josh Collinsworth and [_Build And Deploy A SvelteKit Markdown Blog
 _](https://www.youtube.com/watch?v=RhScu3uqGd0) on YouTube by Joy of Code. I decided to do a few things differently, however, starting with building on Svelte 5 (which is still in preview, and required me to install `mdsvex` with `--legacy-peer-deps`) and also avoiding the API routes concept entirely since I'm only ever going to do static builds.
 
+I pushed the site up to GitHub ([`jasonstitt/blog`](https://github.com/jasonstitt/blog)) -- it's not directly reusable, but some of it could be instructive.
+
 ## Svelte versus React
 
 The last 8 years of my professional life have featured React (following a stint with Angular & AngularJS, which followed various things that shall not be named). Svelte and React are based on quite different ideas, so they feel different to work in. Although both have components that can be used as HTML elements, the way they get there is distinctive.

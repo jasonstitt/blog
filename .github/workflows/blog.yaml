@@ -23,7 +23,7 @@ jobs:
           role-to-assume: ${{ secrets.OIDC_ROLE }}
           aws-region: ${{ env.AWS_REGION }}
       - name: install
-        run: npm ci
+        run: npm ci --force
       - name: build
         run: npm run build
       - name: push
