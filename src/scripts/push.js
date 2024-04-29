@@ -37,12 +37,18 @@ async function pruneObjects (filepaths) {
   const toDelete = objects.filter(obj => !lookup.has(obj))
   await bluebird.map(toDelete, async key => {
     console.log('delete:', key)
-    await s3.send(
-      new DeleteObjectCommand({
-        Bucket: bucketName,
-        Key: key
-      })
-    )
+    try {
+      await s3.send(
+        new DeleteObjectCommand({
+          Bucket: bucketName,
+          Key: key
+        })
+      )
+    } catch (error) {
+      if (error.Code !== 'AccessDenied') {
+        throw error
+      }
+    }
   })
 }
 
