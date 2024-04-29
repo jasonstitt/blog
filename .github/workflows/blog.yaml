@@ -1,0 +1,30 @@
+name: publish
+on:
+  push:
+    branches:
+      - main
+env:
+  BUCKET_NAME : "${{ secrets.BUCKET_NAME }}"
+  AWS_REGION : "${{ secrets.AWS_REGION }}"
+permissions:
+  id-token: write
+  contents: read
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    container:
+      image: python:3.12
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.OIDC_ROLE }}
+          aws-region: ${{ env.AWS_REGION }}
+      - name: install
+        run: npm ci
+      - name: build
+        run: npm run build
+      - name: push
+        run: npm run push
