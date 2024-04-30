@@ -2,6 +2,8 @@ import { Feed } from '@numbered/feed'
 import { getAllPosts } from '$lib/content'
 import { render } from 'svelte/server'
 
+export const prerender = true
+
 export async function GET () {
   const feed = new Feed({
     title: "Jason Stitt's Blog",

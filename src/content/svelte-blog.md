@@ -113,3 +113,23 @@ Non-datetime dates in client-side JavaScript have always been a source of proble
 This is a common issue, but I thought I would avoid it by statically prerendering all the content. However, when I built my site, I found that the dates all flashed and rolled back a fraction of a second after page load, meaning that they were being initally set by the static build and then rehydrating on the client side. The _reason_ static exports didn't avoid this issue is that I had to use a `+page.ts` rather than a `+page.server.ts` for my posts, which in turn is because the imported Markdown post objects weren't serializable.
 
 The fix is simple enough -- set `timeZone: 'UTC'` in `toLocaleDateString` -- but it's an example of how even static sites aren't that simple under the hood now.
+
+## RSS feed
+
+RSS is not nearly as used as it once was, but I wanted to preserve the RSS feed on my blog. _Maybe_ I started regretting starting the codebase from scratch a little at this point, as there was no obvious way to get the content from `mdsvex` into an RSS output.
+
+`mdsvex` imports Markdown files as Svelte components, i.e. as JavaScript objects that are meant to be used in the context of Svelte component rendering.
+
+Google searches kept turning up things like `<svelte:component this={content}/>` which is how you render dynamic components in templates, but this is for use with the preprocessor, not with plain JavaScript. At this point I was wondering if the preprocessor approach was flexible enough, _or_, if I should switch from `mdsvex` to something that would just transform Markdown to HTML.
+
+After code-diving through the Svelte repo, however, I found a module named `svelte/server` that is [documented her](https://svelte-5-preview.vercel.app/docs/imports) as being new in Svelte 5 and which offers a server-side `render` method. I was therefore able to do this:
+
+```js
+import { render } from 'svelte/server'
+
+// ...
+  const html = render(post.content, { props: {} }).html,
+// ...
+```
+
+This gave me static HTML in the string I needed -- it was just a little hard to find.
