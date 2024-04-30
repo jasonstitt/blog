@@ -23,11 +23,13 @@ export async function GET () {
   })
   const posts = (await getAllPosts(true)).slice(0, 10)
   for (const post of posts) {
+    const html = render(post.content, { props: {} }).html
+    const htmlWithoutBlocks = html.replace(/<!--(?:\[|\])-->/g, '')
     feed.addItem({
       title: post.metadata.title,
       id: `https://jasonstitt.com${post.path}`,
       link: `https://jasonstitt.com${post.path}`,
-      content: render(post.content, { props: {} }).html,
+      content: htmlWithoutBlocks,
       date: post.metadata.date
     })
   }
