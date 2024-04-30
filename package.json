@@ -13,9 +13,11 @@
     "push": "node src/scripts/push.js"
   },
   "devDependencies": {
+    "@astrojs/rss": "^4.0.5",
     "@aws-sdk/client-cloudfront": "^3.564.0",
     "@aws-sdk/client-s3": "^3.564.0",
     "@cloudinary/url-gen": "^1.19.0",
+    "@numbered/feed": "^4.2.8",
     "@sveltejs/adapter-auto": "^3.0.0",
     "@sveltejs/adapter-static": "^3.0.1",
     "@sveltejs/kit": "^2.0.0",

@@ -8,6 +8,7 @@
   <title>Jason Stitt's Blog</title>
   <meta property="og:image" content={socialImage} />
   <meta property="twitter:card" content={socialImage} />
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for jasonstitt.com" href="/all.rss" />
 </svelte:head>
 
 <ul class="post-list">
