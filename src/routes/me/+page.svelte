@@ -1,3 +1,14 @@
+<script>
+  import { ogimg } from '$lib/ogimg';
+  const socialImage = ogimg("Hi, I'm Jason Stitt")
+</script>
+
+<svelte:head>
+  <title>Jason Stitt</title>
+  <meta property="og:image" content={socialImage} />
+  <meta property="twitter:card" content={socialImage} />
+</svelte:head>
+
 <h1>About me</h1>
 
 <p class="intro">
