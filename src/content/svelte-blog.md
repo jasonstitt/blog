@@ -110,7 +110,7 @@ Granted, the relationship status between Svelte and Typescript is "it's complica
 
 Non-datetime dates in client-side JavaScript have always been a source of problems. The date gets converted to a datetime at time 00:00, which then can be timezone-adjusted if not handled strictly in UTC, potentially shifting the date by a day when displayed.
 
-This is a common issue, but I thought I would avoid it by statically prerendering all the content. However, when I built my site, I found that the dates all flashed and rolled back a fraction of a second after page load, meaning that they were being initally set by the static build and then rehydrating on the client side. The _reason_ static exports didn't avoid this issue is that I had to use a `+page.ts` rather than a `+page.server.ts` for my posts, which in turn is because the imported Markdown post objects weren't serializable.
+This is a common issue, but I thought I would avoid it by statically prerendering all the content. However, when I built my site, I found that the dates all flashed and rolled back a fraction of a second after page load, meaning that they were being initially set by the static build and then rehydrated on the client side. The _reason_ static exports didn't avoid this issue is that I had to use a `+page.ts` rather than a `+page.server.ts` for my posts, which in turn is because the imported Markdown post objects weren't serializable.
 
 The fix is simple enough -- set `timeZone: 'UTC'` in `toLocaleDateString` -- but it's an example of how even static sites aren't that simple under the hood now.
 
@@ -132,4 +132,12 @@ import { render } from 'svelte/server'
 // ...
 ```
 
-This gave me static HTML in the string I needed -- it was just a little hard to find.
+This gave me static HTML in the string I needed. Of course, there was another problem. The rendered `<code>` blocks looked like this:
+
+```
+<pre class="language-sql"><!--[--><code class="language-sql">(some sql)</code><!--]--></pre>
+```
+
+Because the comments were inside the `<pre>` blocks, they showed up in the output in at least one platform I read the RSS with.
+
+Svelte internally refers to these as `BLOCK_OPEN` and `BLOCK_CLOSE` and they're part of the internal rendering machinery. I didn't see any way to turn them off in `render()`, so I just stripped them with regex.
