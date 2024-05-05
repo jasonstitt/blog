@@ -12,12 +12,12 @@ const client = new Cloudinary({
 
 export function ogimg (overlayText: string) {
   return client
-    .image('social-yos_nislxf')
+    .image('ogimg-jasonstitt-bg_hf8wza')
     .overlay(
       source(
-        text(overlayText, new TextStyle('Roboto Condensed', 86).fontWeight('bold').lineSpacing(-15))
+        text(overlayText, new TextStyle('Source Sans Pro', 120).fontWeight('bold').lineSpacing(-15))
           .textColor('#eeeeee')
-          .textFit(size(1100))
+          .textFit(size(1450))
       )
     )
     .toURL()
