@@ -1,5 +1,5 @@
 ---
-title: The perfect Python unit test setup? With live coverage
+title: Perfect Python test setup? Live coverage with pytest and VS Code
 date: 2023-03-25
 tags: python, testing
 ---
@@ -8,7 +8,7 @@ As developers, we're given more and more opportunities to "shift left" by findin
 
 ## The VS Code side: Coverage Gutter
 
-[Coverage Gutters](https://marketplace.visualstudio.com/items?itemName=ryanluker.vscode-coverage-gutters) is a nifty Visual Studio Code extension that allows you to see code coverage in real-time as you write tests. It highlights the lines of code that are covered by your tests, making it easy to identify the untested parts of your code.
+[Coverage Gutters](https://marketplace.visualstudio.com/items?itemName=ryanluker.vscode-coverage-gutters) is a nifty Visual Studio Code extension that allows you to see code coverage in real-time in VS Code as you write tests. It highlights the lines of code that are covered by your tests, making it easy to identify the untested parts of your code.
 
 To get started, open the Extensions pane to search for and install Coverage Gutters.
 
@@ -16,7 +16,7 @@ Coverage Gutters comes with reasonable configuration out of the box, but you may
 
 Apart from style, I prefer not to customize the functionality of the extension too much. I would rather set up the project so that anybody with a default installation can use it. This is especially important for usage by a team.
 
-## Viewing coverage
+## Viewing pytest coverage in VS Code
 
 After installing the extension, the next step is to generate a coverage report. You can do this with `coverage`, but I'm so used to [`pytest`](https://docs.pytest.org/) at this point that I jump straight to `pytest-cov`:
 
@@ -62,7 +62,7 @@ from livecov import code
 
 Now you'll get some sensible output, showing no coverage of your code.
 
-## The right filename
+## The right coverage filename
 
 But wait... Coverage Gutters complains about our setup. You can try activating the extension by invoking `Coverage Gutters: Display Coverage` in the command palette, only to see an error message:
 
@@ -89,7 +89,7 @@ addopts = "--cov --cov-report=lcov:lcov.info --cov-report=term"
 
 Now you can just type `pytest` and will both see the console output and save an `lcov.info` file for Coverage Gutters.
 
-## Making it update live
+## Making pytest update live
 
 But wait... there's more. We still need to make this live.
 
