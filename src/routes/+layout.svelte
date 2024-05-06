@@ -11,7 +11,7 @@
 <div class="container">
   <header>
     <a href="/">
-      <img src="/profile.png" alt="Jason Stitt" class="main-avatar" />
+      <img src="/profile.webp" alt="Jason Stitt" class="main-avatar" width="90" height="90" />
     </a>
   </header>
   <slot />
