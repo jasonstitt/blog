@@ -21,9 +21,22 @@
   <svelte:component this={data.content} />
 </article>
 
+<footer class="recent">
+  <h2>Recent Posts</h2>
+  <ul>
+    {#each data.recent as post}
+      <li>
+        <a href="{post.path}">
+          {post.metadata.title}
+        </a>
+      </li>
+    {/each}
+  </ul>
+</footer>
+
 <style>
   :global {
-    article.content {
+    article.content, footer.recent {
       h1 {
         font-family: var(--font-sans);
         font-weight: bold;
