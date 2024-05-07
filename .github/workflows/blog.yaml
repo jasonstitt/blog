@@ -7,6 +7,7 @@ env:
   BUCKET_NAME: "${{ secrets.BUCKET_NAME }}"
   AWS_REGION: "${{ secrets.AWS_REGION }}"
   DISTRIBUTION_ID: "${{ secrets.DISTRIBUTION_ID }}"
+  PUBLIC_POSTHOG_KEY: "${{ secrets.PUBLIC_POSTHOG_KEY }}"
 permissions:
   id-token: write
   contents: read
