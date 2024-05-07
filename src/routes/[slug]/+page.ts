@@ -1,5 +1,4 @@
 import { getAllPosts } from '$lib/content.js'
-import { get } from 'svelte/store'
 
 export async function load ({ params }) {
   const post = await import(`../../content/${params.slug}.md`)

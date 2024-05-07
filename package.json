@@ -43,6 +43,7 @@
   "dependencies": {
     "@fontsource/inconsolata": "^5.0.18",
     "@fontsource/merriweather": "^5.0.13",
-    "@fontsource/source-sans-pro": "^5.0.8"
+    "@fontsource/source-sans-pro": "^5.0.8",
+    "posthog-js": "^1.131.0"
   }
 }
