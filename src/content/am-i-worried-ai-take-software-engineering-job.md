@@ -1,6 +1,7 @@
 ---
 title: Am I worried about generative AI taking my software engineering job?
 date: 2024-01-06
+updated: 2024-05-31
 tags: llm
 ---
 
@@ -46,10 +47,22 @@ A traditional approach to junior devs is that they work on subproblems carved ou
 
 That's exactly what LLMs are good at. Writing a function that solves a specific and fairly well-defined problem is core LLM territory. They'll do it faster and cheaper, and although they don't always get the answer right the first time, they take feedback well, arguably better than many people on average.
 
-For example, I recently had GPT-4 implement a niche use case for me, using Pandas to do random selection, with replacement of hundreds of groups of elements in an array. That is, it randomly picked groups of records in which the grouped records stay together, while maintaining a high iteration throughput. There probably aren't a lot of published posts with this specific function.
+For example, I recently had GPT-4 implement a niche use case for me, using Pandas to do random selection, with replacement, of hundreds of groups of elements in an array. That is, it randomly picked groups of records in which the grouped records stay together, while maintaining a high iteration throughput. There probably aren't a lot of published posts with this specific function.
 
-The first two solutions it gave me performed at less than a quarter of the needed throughput, but after taking two directional suggestions from me, the third was perfect. And the first two ran and were accurate, they just weren't fast. The whole chat took 20 minutes, including testing. That's the kind of thing that might have made an interesting junior dev assignment. It wouldn't have taken 20 minutes.
+The first two solutions it gave me performed at less than a quarter of the needed throughput, but after taking two directional suggestions from me, the third was exactly what I needed. And the first two ran and were accurate, they just weren't fast. The whole chat took 20 minutes, including testing. That's the kind of thing that might have made an interesting junior dev assignment. It wouldn't have taken 20 minutes.
 
 I haven't figured it all out, but here's my suggestion.
 
-Junior devs need to do the same things as senior devs, but at a smaller scale. So if LLMs change what we do, if they push us further toward being problem-solving decision makers vs. coders (something that, remember, frameworks and tools have already been doing), then they need to change what we all do. So the profession changes, but we can't jeopardize the idea of bringing up early-career talent (and producing new seniors.) At least, that's an idea.
+Junior devs need to do the same things as senior devs, but at a smaller scale.
+
+So if LLMs change what we do, if they push us further toward being problem-solving decision makers vs. coders (something that, remember, frameworks and tools have already been doing), then they need to change what we all do. So the profession changes, but we can't jeopardize the idea of bringing up early-career talent (and producing new seniors.) At least, that's an idea.
+
+## Where are we on the hype cycle anyway?
+
+LLMs have a hype cycle like a sine wave, propelled by the speed of development so far on the one hand, and by overinflated claims about AGI and public mistakes on the other.
+
+I'm fairly convinced that AGI talk is just to keep LLM companies in the news cycle, for which it's working, with the longer term consequence that people are entering the trough of disillusionment more quickly as they pull back the curtain and realize there isn't a fully formed brain here.
+
+Thing is, even as people are becoming disillusioned (by, for example, being told by the best efforts of a multi-billion-dollar company to put glue on pizza), more and more functional LLM features are being added to products.
+
+What's been wrought with LLMs isn't fake. Code generation works. It doesn't work perfectly. But the genie's bottle has been uncorked. And unlike random, general factual questions, code generation can be functionally verified and refined, so I have to believe it will get better (faster, even, than general-purpose answerbots). And that means more changes ahead.

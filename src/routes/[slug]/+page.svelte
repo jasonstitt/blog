@@ -5,6 +5,7 @@
   const author = 'Jason Stitt'
   const isoDate = toIsoDate(data.date)
   const displayDate = toDisplayDate(data.date)
+  const displayDateUpdated = toDisplayDate(data.updated)
   const socialImage = ogimg(data.title)
 </script>
 
@@ -16,7 +17,14 @@
 
 <article class="content">
   <h1>{data.title}</h1>
-  <time class="pubdate" datetime={isoDate}>{displayDate}</time>
+  <header class="pubdate-section">
+    <time class="pubdate" datetime={isoDate}>{displayDate}</time>
+    {#if data.updated}
+      <time class="updated" datetime={toIsoDate(data.updated)}>
+        (Updated {displayDateUpdated})
+      </time>
+    {/if}
+  </header>
   <address class="byline">By {author}</address>
   <svelte:component this={data.content} />
 </article>

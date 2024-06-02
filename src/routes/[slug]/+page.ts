@@ -2,7 +2,7 @@ import { getAllPosts } from '$lib/content.js'
 
 export async function load ({ params }) {
   const post = await import(`../../content/${params.slug}.md`)
-  const { title, date } = post.metadata
+  const { title, date, updated } = post.metadata
   const content = post.default
   const allPosts = await getAllPosts()
   const recent = allPosts
@@ -13,6 +13,7 @@ export async function load ({ params }) {
     content,
     title,
     date,
+    updated,
     recent
   }
 }
