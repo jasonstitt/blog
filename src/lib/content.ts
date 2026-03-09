@@ -1,10 +1,17 @@
 import { toDisplayDate } from '$lib/dates'
-const files = import.meta.glob('/src/content/*.md')
+import type { ComponentType } from 'svelte'
+
+interface MdsvexModule {
+  metadata: Record<string, unknown>
+  default: ComponentType
+}
+
+const files = import.meta.glob<MdsvexModule>('/src/content/*.md')
 
 export async function getAllPosts (includeContent = false) {
   const posts = await Promise.all(
     Object.entries(files).map(async ([path, file]) => {
-      const { metadata = {}, default: content } = (await file()) as any
+      const { metadata = {}, default: content } = await file()
       path = path.replace('/src/content', '').replace('.md', '')
       metadata.date = new Date(metadata.date || 0)
       metadata.displayDate = toDisplayDate(metadata.date)
