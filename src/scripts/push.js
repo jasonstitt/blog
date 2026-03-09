@@ -5,7 +5,7 @@ import path from 'path'
 import mime from 'mime'
 import { v4 as uuidv4 } from 'uuid'
 import bluebird from 'bluebird'
-import glob from 'glob'
+import { globSync } from 'glob'
 
 const baseDir = 'build'
 const bucketName = process.env.BUCKET_NAME
@@ -69,7 +69,7 @@ async function invalidateCache () {
 
 async function main () {
   try {
-    const files = glob.sync('**/*', { nodir: true, cwd: baseDir })
+    const files = globSync('**/*', { nodir: true, cwd: baseDir })
     await bluebird.map(files, putFile, { concurrency: 20 })
     await pruneObjects(files)
     await invalidateCache()
