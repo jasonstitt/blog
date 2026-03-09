@@ -23,7 +23,7 @@
 <style>
   :root {
     --font-serif: 'Merriweather', serif;
-    --font-sans: 'Source Sans Pro', 'comic sans';
+    --font-sans: 'Source Sans Pro', sans-serif;
     --font-mono: 'Inconsolata', monospace;
     font-family: var(--font-serif);
     background: rgb(50, 50, 60);
